@@ -1,9 +1,4 @@
 <h1>New task</h1>
-<%= form_with model: @task do |form| %>
- <%= f.label :title %>
-  <%= form.text_field :title %>
-  <%= f.label :details %>
-  <%= form.text_area :details, size: "60x10" %>
-  <%= form.submit %>
-<% end %>
+<%= render "/tasks/_form", task: @task %>
+
 <%= link_to "Back to list", "/tasks" %>
