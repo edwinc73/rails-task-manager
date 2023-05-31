@@ -1,11 +1,17 @@
-<h1>My Tasks</h1>
+<h1 class="index-title">My Tasks</h1>
 
 <form action="/tasks" method="post">
   <% @tasks.each do |task| %>
-    <input type="checkbox">
-    <h2><%= link_to task.title, "/tasks/#{task.id}" %></h2>
-    <%= link_to "Delete", "/tasks/#{task.id}" ,data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+  <div class="d-flex align-items-center my-2">
+    <% if task.completed  %>
+      <input type="checkbox" checked>
+    <% else %>
+      <input type="checkbox">
+    <% end %>
+    <h2 class="mx-2"><%= link_to task.title, "/tasks/#{task.id}", class: "text-bold" %></h2>
+    <%= link_to "Delete", "/tasks/#{task.id}" ,data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"text-secondary"%>
+  </div>
   <% end %>
 </form>
 
-<%= link_to "Add a Task", "tasks/new" %>
+<%= link_to "Add a Task", "tasks/new",class:"my-2 btn btn-primary" %>
