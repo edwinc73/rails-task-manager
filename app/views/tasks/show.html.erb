@@ -1,10 +1,17 @@
-<h2><%= @task.title %></h2>
-<p><%= @task.details %></p>
-<% if @task.completed %>
-  <input type="checkbox" checked> <p>Completed</p>
-<% else %>
-  <input type="checkbox"> <p>Completed</p>
-  <% end %>
-<%= link_to "edit", "/tasks/#{@task.id}/edit" %>
-
-<%= link_to "Back to list", "/tasks" %>
+<h1><%= @task.title %></h1>
+<p class="mt-4"><%= @task.details %></p>
+<div class="d-flex align-items-center">
+  <% if @task.completed %>
+    <input type="checkbox" checked>
+    <p class="mx-2 my-0">Completed</p>
+  <% else %>
+    <input type="checkbox">
+    <p class="mx-2 my-0">Completed</p>
+<% end %>
+</div>
+<div class="my-2">
+  <%= link_to "edit", "/tasks/#{@task.id}/edit",class:"my-2 btn btn-primary" %>
+</div>
+<div class="mt-5">
+  <%= link_to "Back to list", "/tasks",class:"btn btn-primary" %>
+</div>
